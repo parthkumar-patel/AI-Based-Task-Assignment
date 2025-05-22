@@ -1,0 +1,237 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Phase 1: Setup - Environment Configuration",
+      "description": "Configure the development environment for the AI-Based Task Assignment System.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "details": "This phase involves preparing the foundational setup for the project. This includes installing the correct Python version (3.10+), establishing an isolated virtual environment to manage dependencies, and installing all necessary packages as specified in the `requirements.txt` file (e.g., scikit-learn, numpy, Faker, Langchain, LlamaIndex, FAISS). A stable and correctly configured environment is crucial for subsequent development stages.",
+      "testStrategy": "Verify Python 3.10+ is installed and accessible. Confirm the virtual environment is active and packages from `requirements.txt` are installed successfully without conflicts. Run basic imports of key libraries to ensure environment integrity.",
+      "subtasks": [
+        {
+          "id": "1.1",
+          "title": "Install Python 3.10+",
+          "status": "pending",
+          "description": "Ensure Python version 3.10 or newer is installed on the development machine."
+        },
+        {
+          "id": "1.2",
+          "title": "Set up virtual environment",
+          "status": "pending",
+          "description": "Create and activate a Python virtual environment to isolate project dependencies."
+        },
+        {
+          "id": "1.3",
+          "title": "Install required packages (requirements.txt)",
+          "status": "pending",
+          "description": "Install all project dependencies, including scikit-learn, numpy, and others needed for AI/ML and RAG functionalities, using the `requirements.txt` file."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Phase 2: Data Generation - Synthetic Data Creation",
+      "description": "Generate synthetic datasets for employees, tasks, and PRDs to be used for development and testing.",
+      "status": "pending",
+      "dependencies": [1],
+      "priority": "high",
+      "details": "This phase focuses on creating realistic synthetic data that mimics real-world scenarios. This includes implementing a generator for employee profiles with varied skills and capacities (referencing `Dummy-data-generator.py` structure), creating templates for tasks with different requirements, and generating sample Product Requirement Documents (PRDs). This data is essential for training and evaluating the task assignment and decomposition models.",
+      "testStrategy": "Validate the output of the employee generator to ensure diverse and plausible profiles. Check task templates for completeness and variability. Review generated PRDs for realism and relevance to the system's purpose. Ensure data can be loaded and parsed correctly by downstream components.",
+      "subtasks": [
+        {
+          "id": "2.1",
+          "title": "Implement employee generator",
+          "status": "pending",
+          "description": "Develop a script to generate synthetic employee data, including skills, capacity, and past projects (similar to `Dummy-data-generator.py`)."
+        },
+        {
+          "id": "2.2",
+          "title": "Create task templates",
+          "status": "pending",
+          "description": "Define and implement templates for generating synthetic tasks with varied required skills and estimated hours."
+        },
+        {
+          "id": "2.3",
+          "title": "Generate sample PRDs",
+          "status": "pending",
+          "description": "Create sample Product Requirement Documents that will be used as input for the RAG-powered task decomposition."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Phase 3: Core Algorithms - KNN Implementation & RAG Pipeline",
+      "description": "Develop the core AI algorithms: the KNN-based task assignment system and the RAG-powered task decomposition pipeline.",
+      "status": "pending",
+      "dependencies": [2],
+      "priority": "high",
+      "details": "This crucial phase involves implementing the intelligent heart of the system. For task assignment (as per Task 1 in roadmap), this includes skill vectorization using TF-IDF (`create_skill_vectors`) and a K-Nearest Neighbors (KNN) model (`train_knn`) for matching tasks to suitable employees, considering their capacity (`assign_tasks`). For task decomposition (as per Task 2 in roadmap), it involves setting up a Retrieval Augmented Generation (RAG) pipeline, including document processing (`process_company_docs`), vector store creation (`create_vector_store` with FAISS and OpenAIEmbeddings), and context-aware decomposition logic using an LLM (`decompose_with_rag`).",
+      "testStrategy": "Unit test each function (e.g., `create_skill_vectors`, `train_knn`, `assign_tasks`, `process_company_docs`, `create_vector_store`, `decompose_with_rag`). Test skill vectorization output for meaningful representations. Evaluate KNN model performance on assigning tasks based on skill matching and capacity. Verify document indexing and retrieval for the RAG pipeline. Assess the quality of task decomposition generated by the RAG model against sample PRDs and context documents.",
+      "subtasks": [
+        {
+          "id": "3.1",
+          "title": "Skill vectorization (TF-IDF)",
+          "status": "pending",
+          "description": "Implement the `create_skill_vectors` function using `TfidfVectorizer` from scikit-learn to convert employee skills into numerical vectors as outlined in Task 1 of the roadmap."
+        },
+        {
+          "id": "3.2",
+          "title": "KNN model training for task assignment",
+          "status": "pending",
+          "description": "Implement the `train_knn` function using `NearestNeighbors` for finding suitable employees based on skill vectors, as per Task 1 of the roadmap."
+        },
+        {
+          "id": "3.3",
+          "title": "Assignment algorithm development",
+          "status": "pending",
+          "description": "Implement the `assign_tasks` function, incorporating skill matching (from KNN) and capacity checking, using the vectorizer effectively, as detailed in Task 1."
+        },
+        {
+          "id": "3.4",
+          "title": "Document processing for RAG",
+          "status": "pending",
+          "description": "Implement `process_company_docs` using `SimpleDirectoryReader` (or equivalent LlamaIndex/Langchain utility) to load and prepare company documents for the RAG pipeline, as per Task 2."
+        },
+        {
+          "id": "3.5",
+          "title": "Vector store setup (FAISS)",
+          "status": "pending",
+          "description": "Implement `create_vector_store` using `OpenAIEmbeddings` and `FAISS` to create and populate a vector store with document embeddings, following Task 2 guidelines."
+        },
+        {
+          "id": "3.6",
+          "title": "Context-aware decomposition with RAG",
+          "status": "pending",
+          "description": "Implement `decompose_with_rag` function to use the vector store for retrieving context and an LLM to break down PRDs into tasks with skills, hours, and dependencies, as specified in Task 2."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Phase 4: Integration - Trello Sync & Capacity Management",
+      "description": "Integrate the core algorithms with external systems (e.g., Trello) and refine capacity management logic.",
+      "status": "pending",
+      "dependencies": [3],
+      "priority": "medium",
+      "details": "This phase focuses on making the system practical by integrating it with project management tools like Trello. This involves setting up API authentication, configuring webhooks for real-time updates, and ensuring tasks assigned by the AI can be reflected in Trello. Further refinement of capacity management, including load balancing (e.g., greedy algorithm mentioned in Task 1 roadmap) and fallback mechanisms for overload scenarios, will also be implemented.",
+      "testStrategy": "Test Trello API authentication and connection. Verify tasks created/assigned by the system are correctly synced to Trello. Test webhook configurations for timely updates. Evaluate the effectiveness of the load balancing algorithm. Test fallback mechanisms when employees are overloaded or no suitable match is found.",
+      "subtasks": [
+        {
+          "id": "4.1",
+          "title": "Trello API authentication setup",
+          "status": "pending",
+          "description": "Configure and implement secure API authentication for Trello integration."
+        },
+        {
+          "id": "4.2",
+          "title": "Webhook configuration (Trello)",
+          "status": "pending",
+          "description": "Set up webhooks for real-time synchronization between the system and Trello."
+        },
+        {
+          "id": "4.3",
+          "title": "Implement Trello task synchronization logic",
+          "status": "pending",
+          "description": "Develop logic to create, update, and manage tasks in Trello based on system assignments."
+        },
+        {
+          "id": "4.4",
+          "title": "Load balancing integration (Greedy Algorithm)",
+          "status": "pending",
+          "description": "Implement a greedy algorithm for load balancing employee workloads during task assignment, as mentioned in Task 1 roadmap for capacity-aware scheduling."
+        },
+        {
+          "id": "4.5",
+          "title": "Develop fallback mechanism for overload",
+          "status": "pending",
+          "description": "Create a fallback strategy for tasks that cannot be assigned due to capacity constraints or skill mismatches, as per Task 1 roadmap."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Phase 5: Testing - Unit Tests & E2E Testing",
+      "description": "Conduct comprehensive testing, including unit tests, end-to-end (E2E) testing, and user acceptance testing (UAT), incorporating validation metrics.",
+      "status": "pending",
+      "dependencies": [4],
+      "priority": "high",
+      "details": "Thorough testing is essential to ensure the system's reliability and accuracy. This phase includes writing unit tests for individual components and functions (e.g., `calculate_accuracy`, `measure_planning_time` from Task 3 roadmap). End-to-end tests will verify complete workflows. Accuracy benchmarks will be established using the Validation Checklist from the roadmap (e.g., 95% tasks assigned have ≥1 matching skill, no employee exceeds 90% capacity, assignment time <2s per task, 80% RAG decomposition accuracy). Stress testing will assess performance under load. Finally, User Acceptance Testing (UAT) will gather feedback from potential users.",
+      "testStrategy": "Achieve target code coverage for unit tests. Define and execute E2E test scenarios. Perform stress tests. Conduct UAT. Validate against metrics in 'Validation Checklist', including testing `calculate_accuracy` and `measure_planning_time` functions.",
+      "subtasks": [
+        {
+          "id": "5.1",
+          "title": "Write Unit Tests for core components & metrics",
+          "status": "pending",
+          "description": "Develop unit tests for critical functions, including data processing, KNN, RAG, integration modules, and validation metric functions (`calculate_accuracy`, `measure_planning_time`)."
+        },
+        {
+          "id": "5.2",
+          "title": "Develop End-to-End (E2E) test scenarios",
+          "status": "pending",
+          "description": "Design and implement E2E tests covering the entire task assignment and decomposition workflow, including Trello integration."
+        },
+        {
+          "id": "5.3",
+          "title": "Establish and run Accuracy Benchmarks",
+          "status": "pending",
+          "description": "Define metrics and run benchmarks to measure task assignment accuracy (e.g., skill matching, capacity limits, assignment time) and RAG decomposition quality against the Validation Checklist."
+        },
+        {
+          "id": "5.4",
+          "title": "Perform Stress Testing",
+          "status": "pending",
+          "description": "Conduct stress tests to evaluate system performance and stability under heavy load and identify bottlenecks."
+        },
+        {
+          "id": "5.5",
+          "title": "Conduct User Acceptance Testing (UAT)",
+          "status": "pending",
+          "description": "Organize and execute UAT sessions with target users to gather feedback and identify usability issues."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Phase 6: Deployment - Dockerization & CI/CD Setup",
+      "description": "Prepare the system for deployment by containerizing components and setting up a CI/CD pipeline.",
+      "status": "pending",
+      "dependencies": [5],
+      "priority": "medium",
+      "details": "The final phase involves making the system ready for production. This includes Dockerizing individual components for portability and scalability. A Continuous Integration/Continuous Deployment (CI/CD) pipeline (e.g., using GitHub Actions) will be set up to automate testing and deployment processes. Monitoring tools will be configured to track system health and performance post-deployment.",
+      "testStrategy": "Verify Docker containers build successfully and run as expected in isolated environments. Test the CI/CD pipeline thoroughly to ensure automated builds, tests, and deployments function correctly across different branches/environments. Confirm monitoring tools are collecting relevant metrics and alerts are configured appropriately for key performance indicators and error states.",
+      "subtasks": [
+        {
+          "id": "6.1",
+          "title": "Containerize components (Docker)",
+          "status": "pending",
+          "description": "Create Dockerfiles and build Docker images for the different services/components of the application, ensuring they are lightweight and secure."
+        },
+        {
+          "id": "6.2",
+          "title": "Set up GitHub Actions workflow (CI/CD)",
+          "status": "pending",
+          "description": "Implement a CI/CD pipeline using GitHub Actions for automated building, testing (unit, integration), and deployment to staging/production environments."
+        },
+        {
+          "id": "6.3",
+          "title": "Configure Monitoring setup",
+          "status": "pending",
+          "description": "Integrate monitoring, logging, and alerting tools (e.g., Prometheus, Grafana, ELK stack, Sentry) to track system performance, resource usage, and errors in real-time."
+        },
+        {
+          "id": "6.4",
+          "title": "Prepare deployment scripts and documentation",
+          "status": "pending",
+          "description": "Write and test deployment scripts (e.g., Helm charts if using Kubernetes, or simpler scripts for other environments) and thoroughly document the deployment process and rollback procedures."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectName": "AI-Based Task Assignment System",
+    "totalTasks": 6,
+    "sourceFile": "implementation_roadmap.md"
+  }
+} 

@@ -1,0 +1,170 @@
+{
+  "employees": [
+    {
+      "employee_id": "E1",
+      "name": "Amanda Wagner",
+      "skills": [
+        "MongoDB",
+        "OAuth2"
+      ],
+      "capacity": 4,
+      "current_load": 0,
+      "past_projects": [
+        {
+          "project_id": "P362",
+          "role": "Developer",
+          "tech_used": [
+            "Node.js",
+            "Redis"
+          ]
+        }
+      ]
+    },
+    {
+      "employee_id": "E2",
+      "name": "Marcus Weaver",
+      "skills": [
+        "OAuth2",
+        "Docker",
+        "JWT"
+      ],
+      "capacity": 3,
+      "current_load": 0,
+      "past_projects": [
+        {
+          "project_id": "P622",
+          "role": "Architect",
+          "tech_used": [
+            "React",
+            "Node.js"
+          ]
+        }
+      ]
+    },
+    {
+      "employee_id": "E3",
+      "name": "Jeremy Oliver",
+      "skills": [
+        "OAuth2",
+        "Redis",
+        "JWT",
+        "Jest"
+      ],
+      "capacity": 8,
+      "current_load": 0,
+      "past_projects": [
+        {
+          "project_id": "P732",
+          "role": "Architect",
+          "tech_used": [
+            "JWT",
+            "OAuth2"
+          ]
+        }
+      ]
+    },
+    {
+      "employee_id": "E4",
+      "name": "Michelle Hood",
+      "skills": [
+        "Docker",
+        "Redis",
+        "Node.js",
+        "React"
+      ],
+      "capacity": 4,
+      "current_load": 0,
+      "past_projects": [
+        {
+          "project_id": "P935",
+          "role": "Developer",
+          "tech_used": [
+            "React",
+            "MongoDB"
+          ]
+        }
+      ]
+    },
+    {
+      "employee_id": "E5",
+      "name": "Anthony Lawrence",
+      "skills": [
+        "JWT",
+        "Node.js"
+      ],
+      "capacity": 7,
+      "current_load": 0,
+      "past_projects": [
+        {
+          "project_id": "P392",
+          "role": "Lead",
+          "tech_used": [
+            "JWT",
+            "Docker"
+          ]
+        },
+        {
+          "project_id": "P425",
+          "role": "Architect",
+          "tech_used": [
+            "Node.js",
+            "Jest"
+          ]
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T1",
+      "description": "Implement CI pipeline",
+      "required_skills": [
+        "JWT",
+        "MongoDB"
+      ],
+      "estimated_hours": 8,
+      "dependencies": [],
+      "status": "Pending"
+    },
+    {
+      "task_id": "T2",
+      "description": "Implement payment gateway",
+      "required_skills": [
+        "OAuth2",
+        "Redis"
+      ],
+      "estimated_hours": 24,
+      "dependencies": [],
+      "status": "Pending"
+    },
+    {
+      "task_id": "T3",
+      "description": "Implement auth module",
+      "required_skills": [
+        "Node.js",
+        "MongoDB"
+      ],
+      "estimated_hours": 24,
+      "dependencies": [],
+      "status": "Pending"
+    },
+    {
+      "task_id": "T4",
+      "description": "Implement auth module",
+      "required_skills": [
+        "Redis",
+        "Node.js"
+      ],
+      "estimated_hours": 24,
+      "dependencies": [],
+      "status": "Pending"
+    }
+  ],
+  "prd": "Build secure authentication system with OAuth2 and JWT support including:\n- User registration flow\n- Password reset functionality\n- Session management\n- Role-based access control",
+  "company_docs": [
+    "API Security Standards v2.3",
+    "Microservices Architecture Guidelines",
+    "Sprint 24-Q2 Retrospective Report",
+    "Identity Service Design Spec"
+  ]
+}
